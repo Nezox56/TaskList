@@ -49,11 +49,14 @@
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedItem}">
             <TextBlock Text="Выбранная задача"  Margin="0" FontSize="20"/>
             <TextBlock Text="Тип задачи:" />
-            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" SpellCheck.IsEnabled="True" Language="ru-ru"/>
             <TextBlock Text="Задача:" />
-            <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" SpellCheck.IsEnabled="True" Language="ru-ru"/>
             <TextBlock Text="Время:" />
             <TextBox Text="{Binding Time, UpdateSourceTrigger=PropertyChanged}" />
+
+            <DatePicker Name="datePicker1"  SelectedDateFormat="Long" />
+            
         </StackPanel>
     </Grid>
 </Window>
