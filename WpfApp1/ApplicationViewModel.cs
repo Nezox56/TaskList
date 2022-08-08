@@ -58,7 +58,7 @@ namespace WpfApp1
         {
             TodoList = new ObservableCollection<TodoItem>
             {
-                new TodoItem {Title = "Встреча", Text = "поговорить с Габеном почему не выпускает третью халву", Time = "13:00" },
+                new TodoItem {Title = "Встреча", Text = "поговорить с Габеном почему не выпускает третью халву", Time = "13:00" , Today={2015, 7, 20}},
                 new TodoItem {Title = "Созвон", Text = "поговорить с Илоном чтоб подогнал теслу", Time = "16:00" },
                 new TodoItem {Title = "Физ. активность", Text = "поход в зал", Time = "18:00" }
             };

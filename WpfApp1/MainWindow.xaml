@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:WpfApp1" d:DataContext="{d:DesignInstance Type=local:TodoItem}"
         mc:Ignorable="d"
         Title="ToDo List" Height="450" Width="800">
     <Window.Resources>
@@ -55,8 +55,9 @@
             <TextBlock Text="Время:" />
             <TextBox Text="{Binding Time, UpdateSourceTrigger=PropertyChanged}" />
 
-            <DatePicker Name="datePicker1"  SelectedDateFormat="Long" />
-            
+            <DatePicker Text="{Binding Today, UpdateSourceTrigger=PropertyChanged}"
+                Name="datePicker1"  SelectedDateFormat="Long" />
+
         </StackPanel>
     </Grid>
 </Window>

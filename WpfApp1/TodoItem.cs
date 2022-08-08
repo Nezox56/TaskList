@@ -9,6 +9,7 @@ namespace WpfApp1
         private string title = "";
         private string text = "";
         private string time = "";
+        DateTime today = new DateTime();
 
         public string Title
         {
@@ -35,6 +36,16 @@ namespace WpfApp1
             {
                 time = value;
                 OnPropertyChanged("Time");
+            }
+        }
+
+        public DateTime Today
+        {
+            get { return today; }
+            set
+            {
+                today = value;
+                OnPropertyChanged();
             }
         }
 
