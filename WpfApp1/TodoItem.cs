@@ -9,7 +9,7 @@ namespace WpfApp1
         private string title = "";
         private string text = "";
         private string time = "";
-        DateTime today = new DateTime();
+        private DateTime today = new DateTime();
 
         public string Title
         {

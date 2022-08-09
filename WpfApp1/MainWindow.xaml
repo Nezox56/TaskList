@@ -13,6 +13,8 @@
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="14" />
+            <Setter Property="SpellCheck.IsEnabled" Value="True"/>
+            <Setter Property="Language" Value="ru-ru"/>
         </Style>
         <Style TargetType="Button">
             <Setter Property="Width" Value="40" />
@@ -34,13 +36,14 @@
                 <DataTemplate>
                     <StackPanel Margin="5">
                         <TextBlock FontSize="18" Text="{Binding Path=Title}" />
-                        <TextBlock Text="{Binding Path=Text}" />
+                        <TextBlock Text="{Binding Path=Text}" TextTrimming="CharacterEllipsis"/>
                         <TextBlock Text="{Binding Path=Time}" />
+                        <TextBlock Text="{Binding Path=Today}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="-1,0,1,0">
             <Button Command="{Binding AddCommand}">+</Button>
             <Button Command="{Binding RemoveCommand}"
                     CommandParameter="{Binding SelectedItem}">-</Button>
@@ -49,15 +52,18 @@
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedItem}">
             <TextBlock Text="Выбранная задача"  Margin="0" FontSize="20"/>
             <TextBlock Text="Тип задачи:" />
-            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" SpellCheck.IsEnabled="True" Language="ru-ru"/>
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Задача:" />
-            <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" SpellCheck.IsEnabled="True" Language="ru-ru"/>
-            <TextBlock Text="Время:" />
-            <TextBox Text="{Binding Time, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="150"/>
+            <TextBlock Text="Дедлайн:" />
 
-            <DatePicker Text="{Binding Today, UpdateSourceTrigger=PropertyChanged}"
-                Name="datePicker1"  SelectedDateFormat="Long" />
+            <StackPanel Orientation="Horizontal" >
+                <TextBox Text="{Binding Time, UpdateSourceTrigger=PropertyChanged}" Width="175"/>
 
+                <DatePicker SelectedDate="{Binding Today, UpdateSourceTrigger=PropertyChanged}"
+                Name="datePicker1"  SelectedDateFormat="Long" Width="180"/>
+
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
